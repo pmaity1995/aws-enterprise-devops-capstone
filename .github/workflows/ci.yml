@@ -13,7 +13,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     defaults:
@@ -21,7 +20,6 @@ jobs:
         working-directory: app
 
     steps:
-
       - name: Checkout Repository
         uses: actions/checkout@v4
 
