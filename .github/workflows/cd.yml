@@ -1,6 +1,6 @@
 name: CD Pipeline
 
-"on":
+'on':
   push:
     branches:
       - feature/cd-pipeline
