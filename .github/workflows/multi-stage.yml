@@ -36,7 +36,7 @@ jobs:
 
       - name: Build Image
         run: |
-          docker build -t $ECR_REPOSITORY:${{ github.sha }} .
+            docker build -t $ECR_REPOSITORY:${{ github.sha }} ./app
 
       - name: Tag Image
         run: |
