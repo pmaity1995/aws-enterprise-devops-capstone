@@ -19,16 +19,16 @@
 ## Evidence
 
 ### Repository Creation
-![Repository](screenshots/Repository_created.png)
+![Repository](screenshots/phase1/Repository_created.png)
 
 ### Branch Structure
-![Branches](screenshots/branches.png)
+![Branches](screenshots/phase1/branches.png)
 
 ### Pull Request
-![PR](screenshots/Pull_request.png)
+![PR](screenshots/phase1/Pull_request.png)
 
 ### Branch Protection
-![Protection](screenshots/Branch_protection.png)
+![Protection](screenshots/phase1/Branch_protection.png)
 
 ## Outcome
 
