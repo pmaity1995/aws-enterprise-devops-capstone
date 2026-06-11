@@ -1,6 +1,10 @@
 name: CD Pipeline
 
-'on':
+"on":
+  push:
+    branches:
+      - feature/cd-pipeline
+
   workflow_dispatch:
 
 jobs:
@@ -19,7 +23,6 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Login to Amazon ECR
-        id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build Docker Image
@@ -36,13 +39,13 @@ jobs:
           docker push \
           484826611947.dkr.ecr.ap-south-1.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:latest
 
-      - name: Update kubeconfig
+      - name: Configure kubectl
         run: |
           aws eks update-kubeconfig \
-          --region ${{ secrets.AWS_REGION }} \
-          --name ${{ secrets.EKS_CLUSTER_NAME }}
+            --region ${{ secrets.AWS_REGION }} \
+            --name ${{ secrets.EKS_CLUSTER_NAME }}
 
-      - name: Deploy to EKS
+      - name: Deploy Application to EKS
         run: |
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
