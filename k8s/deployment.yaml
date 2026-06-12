@@ -15,5 +15,19 @@ spec:
       containers:
         - name: capstone-app
           image: 484826611947.dkr.ecr.ap-south-1.amazonaws.com/aws-enterprise-devops-capstone:latest
+
           ports:
             - containerPort: 3000
+
+          env:
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: capstone-db-secret
+                  key: DB_USERNAME
+
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: capstone-db-secret
+                  key: DB_PASSWORD
