@@ -17,3 +17,17 @@ spec:
           image: 484826611947.dkr.ecr.ap-south-1.amazonaws.com/aws-enterprise-devops-capstone:latest
           ports:
             - containerPort: 3000
+
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 20
